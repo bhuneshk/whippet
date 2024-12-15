@@ -1,0 +1,10 @@
+language: julia
+os:
+  - linux
+  - osx
+julia:
+  - 1.6
+notifications:
+  email: false
+after_success:
+- julia -e 'using Pkg; cd(Pkg.dir("Whippet")); Pkg.add("Coverage"); using Coverage; Codecov.submit(process_folder())'
